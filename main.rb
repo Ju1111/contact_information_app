@@ -8,7 +8,10 @@ end
 def display_contacts
   contacts = read_contacts
   contacts.map {|contact|
-    contact.delete(:email); contact[:name] = contact[:phone]
+    contact[contact[:name]] = contact[:phone];
+    contact.delete(:email);
+    contact.delete(:name);
+    contact.delete(:phone);
   }
   puts contacts
 end
