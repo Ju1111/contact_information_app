@@ -17,14 +17,24 @@ def display_contacts
   puts @contacts
 end
 
-def select_contacts
-  selection = @contacts.select { |contact|
-      contact.any? { |key, value|
-        value.include?('+1')
-      }
-     }
-  puts selection
+def select_phone
+  phone_selection = @contacts.select { |contact|
+    contact.any? { |key, value|
+      value.include?('+1')
+    }
+  }
+  puts phone_selection
+end
+
+def select_email
+  email_selection = @contacts.select { |contact|
+    contact.any? { |key, value|
+      value.include?('.org')
+    }
+  }
+  puts email_selection
 end
 
 display_contacts
-select_contacts
+select_phone
+select_email
