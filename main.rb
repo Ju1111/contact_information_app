@@ -23,7 +23,7 @@ def select_phone
       value.include?('+1')
     }
   }
-  puts phone_selection
+  return phone_selection
 end
 
 def select_email
@@ -32,9 +32,18 @@ def select_email
       value.include?('.org')
     }
   }
-  puts email_selection
+  return email_selection
 end
 
-display_contacts
-select_phone
-select_email
+def count_phone
+    phone_count = select_phone
+    count = phone_count.reduce(0) { |sum, contact|
+    sum += 1
+  }
+  return count
+end
+
+#display_contacts
+#puts select_phone
+#puts select_email
+puts count_phone
